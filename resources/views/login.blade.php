@@ -1,119 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.layout')
+@section('content')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
-    </script>
-    <title>Document</title>
-</head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand">SP.ID</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <form class="d-flex">
-                <input class="form-control me-2 custom-search" type="search" placeholder="Cari Produk, Judul Buku"
-                    aria-label="Search">
-            </form>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item navbarr">
-                        <a class="nav-link" aria-current="page" href="{{ route('sangraha.index') }}">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('about.index') }}">ABOUT</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            KATEGORI
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{{ route('fiksi.index') }}">FIKSI</a></li>
-                            <li><a class="dropdown-item" href="{{ route('nonfiksi.index') }}">NON FIKSI</a></li>
-                        </ul>
-                    </li>
-    </nav>
+<div class="w-[400px] mx-auto mt-24 mb-16 p-8 bg-white border border-gray-300 rounded-lg shadow-md">
+    <h1 class="text-center text-xl font-bold mb-5">Log In</h1>
 
-    <div class="login-container">
-        <h1>Log In</h1>
+    <form class="flex flex-col">
+        <label for="email" class="mb-1 font-semibold">Your Email</label>
+        <input type="email" id="email" placeholder="contohemail@gmail.com" required
+            class="h-10 mb-4 px-3 border border-gray-300 rounded-md text-base focus:outline-none focus:ring-2 focus:ring-cyan-500">
 
-        <form class="login-form">
-            <label for="email">Your Email</label>
-            <input type="email" id="email" placeholder="contohemail@gmail.com" required>
-
-            <div class="password-field">
-                <label for="password">Password</label>
-                <a href="#" class="forgot-link">Forgot?</a>
-            </div>
-            <input type="password" id="password" placeholder="************" required>
-
-            <button type="submit" class="login-btn" style="margin-top: 20px;">LOGIN</button>
-
-            <p class="signup-text">Don't Have Any Account? <a href="signup.html">Sign up</a></p>
-        </form>
-    </div>
-
-    <footer class="footer mt-5 p-4 footerhome">
-        <div class="container">
-            <div class="row footerlist">
-                <!-- Produk Sanghara Pustaka -->
-                <div class="col-3">
-                    <h5 class="fw-bold">PRODUK SANGHARA PUSTAKA</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="{{route ("fiksi.index")}}" class="text-decoration-none text-secondary">Fiksi</a></li>
-                        <li><a href="{{route ("nonfiksi.index")}}" class="text-decoration-none text-secondary">Non Fiksi</a></li>
-                    </ul>
-                </div>
-                <!-- Tentang Sanghara Pustaka -->
-                <div class="col-3">
-                    <h5 class="fw-bold">TENTANG SANGHARA PUSTAKA</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="{{route ("about.index")}}" class="text-decoration-none text-secondary">Tentang Kami</a></li>
-                    </ul>
-                </div>
-                <!-- Lainnya -->
-                <div class="col-2">
-                    <h5 class="fw-bold">LAINNYA</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-decoration-none text-secondary">Hubungi Kami</a></li>
-                    </ul>
-                </div>
-                <div class="col d-flex justify-content-end">
-                    <!-- Social Media Icons -->
-                    <a href="https://wa.me/6285964209143?text=Halo%20saya%20mau%20tanya%20tentang%20produk%20anda
-    "><img
-                            src="assets/img/wa.png" alt="WhatsApp" class="social-icon"></a>
-                    <a href="https://instagram.com/kayevanots"><img src="assets/img/ig.png" alt="Instagram"
-                            class="social-icon"></a>
-                    <a href="#"><img src="assets/img/fb.png" alt="Facebook" class="social-icon"></a>
-                    <a href="#"><img src="assets/img/X.png" alt="Twitter" class="social-icon"></a>
-                </div>
-            </div>
-            <!-- Garis Bawah -->
-            <hr class="footer-line">
-            <div class="row align-items-center">
-                <div class="col-md-6 copyright">
-                    <p>© 2024 PT Sangraha Pustaka</p>
-                </div>
-            </div>
+        <div class="flex justify-between items-center mb-1">
+            <label for="password" class="font-semibold">Password</label>
+            <a href="#" class="text-black text-sm font-medium no-underline hover:underline">Forgot?</a>
         </div>
-    </footer>
-    
-</body>
+        <input type="password" id="password" placeholder="************" required
+            class="h-10 mb-5 px-3 border border-gray-300 rounded-md text-base focus:outline-none focus:ring-2 focus:ring-cyan-500">
 
-</html>
+        <button type="submit"
+            class="h-11 bg-white border-2 border-black rounded-md font-bold cursor-pointer hover:bg-black hover:text-white transition-colors">
+            LOGIN
+        </button>
+
+        <p class="text-center mt-3 text-sm">
+            Don't Have Any Account?
+            <a href="signup.html" class="font-bold text-black no-underline hover:underline">Sign up</a>
+        </p>
+    </form>
+</div>
+
+
+@endsection
